@@ -1,0 +1,15 @@
+.footer {
+    width: 100%;
+    background-color: rgb(240, 255, 127);
+    margin: 10px 0 0 0;
+
+    .container {
+        max-width: 1170px;
+        height: 70px;
+        background-color: aqua;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

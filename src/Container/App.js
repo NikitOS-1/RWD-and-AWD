@@ -1,3 +1,4 @@
+import { useState } from "react";
 import style from "./App.module.scss";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
@@ -8,17 +9,12 @@ function App() {
   const styleClasses = [style.app, style.container, style[`${active}`]].join(
     " "
   );
+
   return (
     <div className={styleClasses}>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <Main />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }

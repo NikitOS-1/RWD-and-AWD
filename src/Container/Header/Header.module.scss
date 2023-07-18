@@ -1,0 +1,70 @@
+.header {
+    width: 100%;
+    background-color: rgb(240, 255, 127);
+    margin: 0 0 10px 0;
+
+    .container {
+        max-width: 1170px;
+        height: 70px;
+        background-color: aqua;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            margin: 10px;
+            border-radius: 50%;
+            background-color: tomato;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu {
+            display: flex;
+
+            .menuItem {
+                @media (max-width:700px) {
+                    display: none;
+                }
+            }
+
+            .humbergerMenu {
+                display: none;
+
+                div {
+                    width: 50px;
+                    height: 7px;
+                    background-color: tomato;
+                    margin: 10px;
+                }
+
+                @media (max-width:700px) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .hiddenMenu {}
+}
+
+.menuItem {
+    background-color: rgb(246, 255, 71);
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+}
+
+.show {
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.hidden {
+    display: none;
+}
