@@ -2,9 +2,9 @@ import { useState } from "react";
 import style from "./Header.module.scss";
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState("menu");
   const showMenu = () => {
-    isActive === false ? setIsActive(true) : setIsActive(false);
+    isActive === "menu" ? setIsActive("menuActive") : setIsActive("menu");
   };
 
   return (
@@ -14,8 +14,7 @@ const Header = () => {
         <div className={style.humbergerMenu} onClick={showMenu}>
           <span></span>
         </div>
-        <nav
-          className={[style.menu, [`${isActive ? "active" : " "}`]].join(" ")}>
+        <nav className={style[isActive]}>
           <div className={style.menuItem}>1</div>
           <div className={style.menuItem}>2</div>
           <div className={style.menuItem}>3</div>
