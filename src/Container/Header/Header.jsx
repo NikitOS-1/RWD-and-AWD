@@ -2,30 +2,27 @@ import { useState } from "react";
 import style from "./Header.module.scss";
 
 const Header = () => {
-  const [hamburgerMenu, setHamburgerMenu] = useState("hidden");
+  const [isActive, setIsActive] = useState(false);
   const showMenu = () => {
-    hamburgerMenu == "hidden"
-      ? setHamburgerMenu("show")
-      : setHamburgerMenu("hidden");
+    isActive === false ? setIsActive(true) : setIsActive(false);
   };
+
   return (
     <header className={style.header}>
       <div className={style.container}>
         <div className={style.logo}></div>
-        <nav className={style.menu}>
+        <div className={style.humbergerMenu} onClick={showMenu}>
+          <span></span>
+        </div>
+        <nav
+          className={[style.menu, [`${isActive ? "active" : " "}`]].join(" ")}>
           <div className={style.menuItem}>1</div>
           <div className={style.menuItem}>2</div>
           <div className={style.menuItem}>3</div>
           <div className={style.menuItem}>4</div>
           <div className={style.menuItem}>5</div>
-          <div className={style.humbergerMenu} onClick={showMenu}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
         </nav>
       </div>
-      <div className={[style.hiddenMenu, style[hamburgerMenu]].join(" ")}></div>
     </header>
   );
 };

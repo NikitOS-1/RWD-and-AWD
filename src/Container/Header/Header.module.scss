@@ -1,7 +1,21 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
     width: 100%;
     background-color: rgb(240, 255, 127);
-    margin: 0 0 10px 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        height: 100%;
+        background-color: aqua;
+        z-index: 49;
+    }
 
     .container {
         max-width: 1170px;
@@ -11,6 +25,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        z-index: 48;
 
         .logo {
             margin: 10px;
@@ -18,53 +33,88 @@
             background-color: tomato;
             width: 50px;
             height: 50px;
+            z-index: 49;
+        }
+
+        .humbergerMenu {
+            display: none;
+            z-index: 48;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 7px;
+                background-color: tomato;
+                left: 0;
+            }
+
+            &::before {
+                top: 0;
+            }
+
+            &::after {
+                bottom: 0;
+            }
+
+            span {
+                position: absolute;
+                width: 100%;
+                height: 7px;
+                background-color: tomato;
+                top: 16px;
+            }
         }
 
         .menu {
             display: flex;
 
             .menuItem {
-                @media (max-width:700px) {
-                    display: none;
-                }
+                background-color: rgb(246, 255, 71);
+                width: 100px;
+                height: 20px;
+                margin: 10px;
             }
+        }
+    }
+}
+
+@media (max-width:700px) {
+    .header {
+
+        .container {
+            background-color: aqua;
+            z-index: 51;
 
             .humbergerMenu {
-                display: none;
+                display: block;
+                position: relative;
+                width: 50px;
+                height: 40px;
+                margin-right: 10px;
+            }
 
-                div {
-                    width: 50px;
-                    height: 7px;
-                    background-color: tomato;
-                    margin: 10px;
-                }
+            .menu {
+                overflow: hidden;
+                margin-top: 70px;
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(172, 71, 255);
 
-                @media (max-width:700px) {
-                    display: block;
+                .menuItem {
+                    display: none;
                 }
             }
         }
     }
-
-    .hiddenMenu {}
 }
 
-.menuItem {
-    background-color: rgb(246, 255, 71);
-    width: 100px;
-    height: 20px;
-    margin: 10px;
-}
 
-.show {
-    transition: 1s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-
-}
-
-.hidden {
+.active {
     display: none;
 }
